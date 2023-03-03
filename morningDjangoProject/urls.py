@@ -24,5 +24,8 @@ urlpatterns = [
     path('login/',auth_views.LoginView.as_view(template_name='login.html'),name='login'),
     path('home/',general_views.home, name='home'),
     path('logout/',auth_views.LogoutView.as_view(template_name= 'logout.html'), name='logout'),
-    path('add-product/', general_views.add_product, name='add-product')
+    path('add-product/', general_views.add_product, name='add-product'),
+    path('products/', general_views.view_products, name='products'),
+    path('delete-product/<id>', general_views.delete_product, name='delete-product'),
+    path('update-product/<id>',general_views.update_product, name='update-product'),
 ]

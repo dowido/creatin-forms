@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<section class="products section">
+    <div class="products-section-table">
+        <table class=" table table-hover table-striped">
+            <tr>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Delete</th>
+                <th>Update</th>
+
+            </tr>
+            {% for product in products %}
+            <tr>
+                <td>{{ product.prod_name }}</td>
+                <td>{{ product.prod_price }}</td>
+                <td>{{ product.prod_price }}</td>
+                <td><a href="/delete-product/{{ product.id }}"><button class="btn btn-danger">Delete</button></a></td>
+                <td><a href="/update-product/{{ product.id }}" class="btn btn-success">Update</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</section>
+{% endblock %}

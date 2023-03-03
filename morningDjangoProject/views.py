@@ -74,3 +74,15 @@ def update_product(request, id):
 
     return render(request, "update-product.html",{'product':product})
 
+
+@login_required
+def payment(request, id):
+    products = Product.objects.get(id=id)
+
+    # checking if the form has a post method
+    if request.method == 'POST':
+        phone_number = request.POST.get('nambari')
+        amount = request.POST.get('bei')
+        # proceed with payment by launching sim toolkit
+
+    return render(request, 'payment.html', {'product': products})
